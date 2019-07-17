@@ -6,7 +6,7 @@
 #   scollier <scollier@redhat.com>
 
 FROM nginx
-MAINTAINER The finfraTeam Project <nowage@gmail.com>
+MAINTAINER Test_Project <Kweoncj2019@gmail.com>
 
 ENV LC_ALL en_US.UTF-8
 
