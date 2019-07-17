@@ -1,27 +1,18 @@
-# dockerfiles-centos-user-adderable
-Centos7, It support base user creation and password setting.
+    
+# "ported" by Adam Miller <maxamillion@fedoraproject.org> from
+#   https://github.com/fedora-cloud/Fedora-Dockerfiles
+#
+# Originally written for Fedora-Dockerfiles by
+#   scollier <scollier@redhat.com>
 
-# Building & Running
+FROM nginx
+MAINTAINER The finfraTeam Project <nowage@gmail.com>
 
-Copy the sources to your docker host and build the container, and to run.
-```
-	docker build --rm -t nowage/centos7 .
-	docker run -it --name c1 -e USER=nowage -e PASSWD=nowage nowage/centos7
-```
-Get the port that the container is listening on:
+ENV LC_ALL en_US.UTF-8
 
-```
-# docker ps
-CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
-ad2ad96e4b2f        nowage/centos7      "/bin/bash"         7 seconds ago       Up 6 seconds                            c1
-```
 
-To test, ("nowage" is username. )
-```
-	su - nowage
-```
-To Rollback
-```
-    docker rm c1 -f
-    docker rmi nowage/centos7
-```
+COPY ./index.html /usr/share/nginx/html/
+# RUN chmod 755 /start.sh
+
+# ENTRYPOINT ["/xx/sshd","sshd"]
+# CMD /start.sh
